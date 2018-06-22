@@ -1,31 +1,20 @@
-$(document).ready(function () {
-
-  // Add smooth scrolling on all links inside the navbar
-  $("#navScrollspy a").on('click', function (event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function () {
-        window.location.hash = hash;
-      });
-    }
-  });
-  $(".selection").on("click", "span", function () {
-    $("span").removeClass("active");
-    $(this).toggleClass("active");
-    if ($("#allSelection").hasClass("active")) {
-      $(".front-end").show(1000);
-      $(".full-stack").show(1000);
-    }
-    if ($("#frontEndSelection").hasClass("active")) {
-      $(".front-end").show(1000);
-      $(".full-stack").hide(1000);
-    }
-    if ($("#fullStackSelection").hasClass("active")) {
-      $(".full-stack").show(1000);
-      $(".front-end").hide(1000);
-    }
-  });
+// ANIMATION ON SCROLL INIT
+AOS.init({
+  duration: 1000
 });
+
+// M.sidenav init
+const sideNav = document.querySelector('.sidenav');
+M.Sidenav.init(sideNav, {});
+
+// M.Tabs init
+const tabs = document.querySelector('.tabs');
+M.Tabs.init(tabs, {})
+
+// FAB init
+
+const fixedActionButton = document.querySelector('.fixed-action-btn')
+M.FloatingActionButton.init(fixedActionButton, {})
+// ScrollSpy init
+const ss = document.querySelectorAll('.scrollspy');
+M.ScrollSpy.init(ss, {});
